@@ -1,14 +1,13 @@
-import csv
+import csv, json
 
-folder_path="./csv_data"
-origin_file_path = "/TMDB_movie_dataset.csv"
-modified_file_path = "/movies_example_modified.csv"
+origin_file_path = "./TMDB_movie_dataset.csv"
+modified_file_path = "./movies_example_modified.csv"
 
 get_first_data_split_by_com:str=lambda x:x.split(',')[0]
 
 
 if __name__=="__main__":
-    with open(folder_path+origin_file_path, "r") as fr, open(folder_path+modified_file_path, "w", newline="") as fw:
+    with open(origin_file_path, "r") as fr, open(modified_file_path, "w", newline="") as fw:
         rdr = csv.reader(fr)
         modified_header_row = [
             "id",
@@ -19,21 +18,21 @@ if __name__=="__main__":
             "overview",
             "budget",
             "revenue",
-            "production_country",
-            "production_company",
+            "production_countries",
+            "production_companies",
             "vote_count",
             "vote_average",
             "release_date",
-            "language",
+            "language"
         ]
 
         # 파일쓰기
-        writer = csv.writer(fw)
+        writer = csv.writer(fw,delimiter=",")
         writer.writerow(modified_header_row)
         for idx, line in enumerate(rdr, 0):
-            if idx ==0: # 기존 헤더정보 스킵 
+            if idx ==0: # 기존 헤더정보 스킵
                 continue
-            if idx > 5000:  # 5000 개 데이터 만 사용
+            if idx > 300:  # 300 개 데이터 만 사용
                 break
 
             (
@@ -85,5 +84,5 @@ if __name__=="__main__":
             "language",
             """
             write_line=[movie_id,title,poster_path,status,genre,overview,budget,revenue,production_companies,production_companies,vote_count,vote_average,release_date,original_language]
-            writer.writerow(write_line)  
+            writer.writerow(write_line)
     print("script done!")

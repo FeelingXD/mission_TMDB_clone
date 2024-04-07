@@ -1,11 +1,11 @@
 services:
-  mysql:
-    image: 'mysql:latest'
+  maria:
+    image: 'mariadb:latest'
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
+      - 'MYSQL_DATABASE=TMDB'
+      - 'MYSQL_PASSWORD=12345678'
+      - 'MYSQL_ROOT_PASSWORD=12345678'
+      - 'MYSQL_USER=ROOT'
     ports:
       - '3306:3306'
 networks:

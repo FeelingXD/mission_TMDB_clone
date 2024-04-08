@@ -33,4 +33,5 @@ out/
 /nbdist/
 /.nb-gradle/
 
-
+## QueryDsl
+/src/main/generated/**

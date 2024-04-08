@@ -33,13 +33,4 @@ out/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
-/src/main/resources/aws.yml
-/src/main/resources/oauth2.yml
 
-/banggapgo-docker/env/api.env
-/banggapgo-docker/env/mongo.env
-/banggapgo-docker/env/mysql.env
-/banggapgo-docker/env/rabbitmq.env
-/banggapgo-docker/env/redis.env

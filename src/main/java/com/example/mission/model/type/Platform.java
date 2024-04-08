@@ -7,5 +7,13 @@ public enum Platform {
     TV,
     STREAMING,
     RENTAL,
-    THEATER
+    THEATER;
+    public static Platform fromValue(String value){
+        for (Platform platform:Platform.values()){
+            if (platform.name().equalsIgnoreCase(value.trim())){
+                return platform;
+            }
+        }
+        throw new IllegalArgumentException("Invalid platform value" +value);
+    }
 }

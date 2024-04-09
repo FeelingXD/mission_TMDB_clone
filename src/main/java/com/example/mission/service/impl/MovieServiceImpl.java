@@ -1,5 +1,7 @@
 package com.example.mission.service.impl;
 
+import com.example.mission.common.CustomException;
+import com.example.mission.common.ErrorCode;
 import com.example.mission.model.dto.MovieCardDto;
 import com.example.mission.model.dto.MovieDto;
 import com.example.mission.model.dto.MovieRecommendDto;
@@ -19,7 +21,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieDto getMovieDetailById(Long id) {
-        var result = movieRepository.findById(id).orElseThrow(() -> new RuntimeException("아이디에 해당하는 영화가 존재하지 않습니다."));
+        var result = movieRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.MOVIE_NOT_FOUND));
         return MovieDto.fromEntity(result);
     }
 

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Data
@@ -29,5 +30,13 @@ public class MovieCardDto {
                 .UserScore((int)(movie.getVoteAverage()*10))
                 .build();
     }
-
+    public static MovieCardDto fromObj(Object[] obj){
+        return MovieCardDto.builder()
+                .id((Long) obj[0])
+                .title((String) obj[1])
+                .releaseDate(((Timestamp) obj[2]).toLocalDateTime())
+                .posterPath((String) obj[3])
+                .UserScore((int) ((double)(obj[4])*10))
+                .build();
+    }
 }

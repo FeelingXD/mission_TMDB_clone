@@ -2,6 +2,7 @@ package com.example.mission.controller;
 
 import com.example.mission.model.dto.MovieDto;
 import com.example.mission.model.dto.MovieRecommendDto;
+import com.example.mission.model.dto.PopularMoviesDto;
 import com.example.mission.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,4 +26,8 @@ public class MovieController {
 
     @GetMapping("/movie/{id}/recommend")
     public List<MovieRecommendDto> getRecommendMoviesById(@PathVariable long id){return movieService.getRecommendMoviesById(id);}
+    @GetMapping("/movie/popular")
+    public PopularMoviesDto getPopularMovies(){
+        return movieService.getPopularMovies();
+    }
 }

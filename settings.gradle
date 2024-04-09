@@ -1,1 +1,6 @@
 rootProject.name = 'mission'
+sourceControl {
+    gitRepository("https://github.com/FeelingXD/common-api-response"){
+        producesModule("org.feelingxd:common-api-response")
+    }
+}

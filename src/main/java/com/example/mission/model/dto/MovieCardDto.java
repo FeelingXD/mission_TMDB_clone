@@ -21,7 +21,7 @@ public class MovieCardDto {
     private String posterPath;
     private Integer UserScore;
 
-    public MovieCardDto fromEntity(Movie movie){
+    public static MovieCardDto fromEntity(Movie movie){
         return MovieCardDto.builder()
                 .id(movie.getId())
                 .title(movie.getTitle())

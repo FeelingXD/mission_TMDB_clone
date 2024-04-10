@@ -44,7 +44,7 @@ public class Movie {
     @Column(name = "release_date")
     private LocalDateTime releaseDate;
 
-    @OneToOne(mappedBy = "movie", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "movie", fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
     private Trailer trailer;
 
     private String language;

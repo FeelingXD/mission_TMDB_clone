@@ -14,19 +14,19 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1")
+@RequestMapping("/v1/movie")
 public class MovieController {
     private final MovieService movieService;
 
     //영화 상세 API
-    @GetMapping("/movie/{id}")
+    @GetMapping("/{id}")
     public MovieDto getMovieDetailById(@PathVariable long id) {
         return movieService.getMovieDetailById(id);
     }
 
-    @GetMapping("/movie/{id}/recommend")
+    @GetMapping("/{id}/recommend")
     public List<MovieRecommendDto> getRecommendMoviesById(@PathVariable long id){return movieService.getRecommendMoviesById(id);}
-    @GetMapping("/movie/popular")
+    @GetMapping("/popular")
     public PopularMoviesDto getPopularMovies(){
         return movieService.getPopularMovies();
     }

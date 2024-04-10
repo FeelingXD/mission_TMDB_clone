@@ -27,6 +27,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<MovieRecommendDto> getRecommendMoviesById(Long id) {
+        movieRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.MOVIE_NOT_FOUND));
         return movieRepository.getRecommendMoviesById(id);
     }
 

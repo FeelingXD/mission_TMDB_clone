@@ -1,7 +1,7 @@
 USE TMDB;
 -- 트레일러 데이터 임포트 스크립트
-LOAD DATA INFILE './TMDB_DUMMY_DATA.csv' -- 경로를 변경해서 사용해주세요.
-INTO TABLE movie
+LOAD DATA INFILE './TMDB_TRAILER_DUMMY_DATA.csv' -- 경로를 변경해서 사용해주세요.
+INTO TABLE trailer
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'

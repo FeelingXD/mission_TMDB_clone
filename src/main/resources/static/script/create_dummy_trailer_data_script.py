@@ -23,7 +23,7 @@ def run_script():
         next(rdr) # 첫줄 넘기기
         for line in rdr:
             movie_id,title,*_=line
-            writer.writerow([movie_id,DUMMY_OVERVIEW_TEXT+title,DUMMY_TRAILER_TITLE_TEXT+title,DUMMY_OVERVIEW_URL+movie_id])
+            writer.writerow([movie_id,DUMMY_OVERVIEW_TEXT+title,DUMMY_TRAILER_TITLE_TEXT+title,(DUMMY_OVERVIEW_URL+movie_id).strip()])
         pass
     print('script done!')
     pass

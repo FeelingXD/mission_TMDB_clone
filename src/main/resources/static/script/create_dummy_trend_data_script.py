@@ -21,7 +21,7 @@ def run_script():
         for line in rdr:
             movie_id,*_=line
             for type in set(random.choices(PLATFORM_TYPE,k=len(PLATFORM_TYPE))):
-                writer.writerow([movie_id,type])
+                writer.writerow([movie_id,type.strip()])
 
     print('script done!')
     pass

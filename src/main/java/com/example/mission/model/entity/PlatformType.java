@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @Entity
 @Getter
-@IdClass(PlatformType.PlatformPK.class)
+@IdClass(PlatformPK.class)
 public class PlatformType {
 
     @Id
@@ -20,10 +20,5 @@ public class PlatformType {
     @Column(name = "platform")
     private String platform;
 
-    @Data
-    @Embeddable
-    public class PlatformPK implements Serializable {
-        private Movie movie;
-        private String platform;
-    }
+
 }

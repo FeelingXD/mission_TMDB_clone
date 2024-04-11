@@ -17,7 +17,6 @@ public class TrailerController {
     //최신 예고편 API
     @GetMapping
     public LatestTrailersDto getLatestTrailerDto(){
-        var res =trailerService.getLatestTrailers();
-        return res;
+        return trailerService.getLatestTrailers();
     }
 }

@@ -12,10 +12,11 @@ import java.util.List;
 public class MovieRepositoryCustomImpl implements MovieRepositoryCustom {
 
     private final JPAQueryFactory queryFactory;
-    QMovie qMovie=QMovie.movie;
+    QMovie qMovie = QMovie.movie;
+
     @Override
     public List<MovieRecommendDto> getRecommendMoviesById(Long id) { //todo : 영화 추천 같은 장르 영화 에서 voteCount 큰순
-        var condition_find_genre_by_movie_id=queryFactory
+        var condition_find_genre_by_movie_id = queryFactory
                 .select(qMovie.genre)
                 .from(qMovie)
                 .where(qMovie.id.eq(id));

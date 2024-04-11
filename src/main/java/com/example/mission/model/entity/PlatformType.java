@@ -1,6 +1,5 @@
 package com.example.mission.model.entity;
 
-import com.example.mission.model.type.Platform;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -15,14 +14,15 @@ public class PlatformType {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="movie_id")
+    @JoinColumn(name = "movie_id")
     private Movie movie;
     @Id
     @Column(name = "platform")
     private String platform;
+
     @Data
     @Embeddable
-    public class PlatformPK implements Serializable{
+    public class PlatformPK implements Serializable {
         private Movie movie;
         private String platform;
     }

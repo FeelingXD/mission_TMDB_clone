@@ -25,9 +25,12 @@ public class MovieController {
     }
 
     @GetMapping("/{id}/recommend")
-    public List<MovieRecommendDto> getRecommendMoviesById(@PathVariable long id){return movieService.getRecommendMoviesById(id);}
+    public List<MovieRecommendDto> getRecommendMoviesById(@PathVariable long id) {
+        return movieService.getRecommendMoviesById(id);
+    }
+
     @GetMapping("/popular")
-    public PopularMoviesDto getPopularMovies(){
+    public PopularMoviesDto getPopularMovies() {
         return movieService.getPopularMovies();
     }
 }

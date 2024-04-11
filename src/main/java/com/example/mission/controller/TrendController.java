@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/trends")
 public class TrendController {
     private final TrendService trendService;
+
     @GetMapping
-    public MovieTrendDto getMovieTrends(){
+    public MovieTrendDto getMovieTrends() {
         return trendService.getMovieTrends();
     }
 }

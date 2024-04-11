@@ -33,10 +33,10 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public PopularMoviesDto getPopularMovies() {
-        var streaming=movieRepository.getPopularMoviesByPlatform(Platform.STREAMING.name()).stream().map(MovieCardDto::fromObj).toList();
-        var tv=movieRepository.getPopularMoviesByPlatform(Platform.TV.name()).stream().map(MovieCardDto::fromObj).toList();
-        var rental=movieRepository.getPopularMoviesByPlatform(Platform.RENTAL.name()).stream().map(MovieCardDto::fromObj).toList();
-        var theater=movieRepository.getPopularMoviesByPlatform(Platform.THEATER.name()).stream().map(MovieCardDto::fromObj).toList();
+        var streaming = movieRepository.getPopularMoviesByPlatform(Platform.STREAMING.name()).stream().map(MovieCardDto::fromObj).toList();
+        var tv = movieRepository.getPopularMoviesByPlatform(Platform.TV.name()).stream().map(MovieCardDto::fromObj).toList();
+        var rental = movieRepository.getPopularMoviesByPlatform(Platform.RENTAL.name()).stream().map(MovieCardDto::fromObj).toList();
+        var theater = movieRepository.getPopularMoviesByPlatform(Platform.THEATER.name()).stream().map(MovieCardDto::fromObj).toList();
 
         return PopularMoviesDto.builder()
                 .streaming(streaming)

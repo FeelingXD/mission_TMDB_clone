@@ -14,15 +14,16 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class TrendRepositoryCustomImpl implements TrendRepositoryCustom {
     private final JPAQueryFactory factory;
-    QTrend qTrend=QTrend.trend;
-    QMovie qMovie=QMovie.movie;
+    QTrend qTrend = QTrend.trend;
+    QMovie qMovie = QMovie.movie;
+
     @Override
     public List<MovieCardDto> getTodayMovieTrend() {
 
-        var query =factory
+        var query = factory
                 .select(qTrend, qTrend.movie.count())
                 .from(qTrend)
-                .leftJoin(qTrend.movie,qMovie).fetchJoin()
+                .leftJoin(qTrend.movie, qMovie).fetchJoin()
                 .leftJoin(qMovie.trailer).fetchJoin()
                 .where(qTrend.createdDate.eq(LocalDate.now().minusDays(1)))
                 .groupBy(qTrend.movie.id)
@@ -39,7 +40,7 @@ public class TrendRepositoryCustomImpl implements TrendRepositoryCustom {
 
     @Override
     public List<MovieCardDto> getThisWeekMovieTrend() {
-        var query =factory
+        var query = factory
                 .select(qTrend, qTrend.movie.count())
                 .from(qTrend)
                 .leftJoin(qTrend.movie).fetchJoin()

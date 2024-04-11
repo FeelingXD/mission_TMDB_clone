@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface TrendRepositoryCustom {
     List<MovieCardDto> getTodayMovieTrend();
+
     List<MovieCardDto> getThisWeekMovieTrend();
 }

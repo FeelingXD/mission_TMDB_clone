@@ -36,8 +36,9 @@ public class RestControllerAdvise implements ResponseBodyAdvice<Object> {
                 .code(ExampleResponseCode.RESPONSE_SUCCESS)
                 .build();
     }
+
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity<ApiResponse<Void>> customExceptionHandler(CustomException e){
+    public ResponseEntity<ApiResponse<Void>> customExceptionHandler(CustomException e) {
         return ApiResponse.builder().code(e.getErrorCode()).toEntity();
     }
 }

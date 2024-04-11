@@ -13,8 +13,8 @@ public class TrendServiceImpl implements TrendService {
 
     @Override
     public MovieTrendDto getMovieTrends() {
-        var today=trendRepository.getTodayMovieTrend();
-        var thisWeek=trendRepository.getThisWeekMovieTrend();
+        var today = trendRepository.getTodayMovieTrend();
+        var thisWeek = trendRepository.getThisWeekMovieTrend();
 
         return MovieTrendDto.builder()
                 .today(today)

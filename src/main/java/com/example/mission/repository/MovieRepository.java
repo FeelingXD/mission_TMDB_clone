@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface MovieRepository extends JpaRepository<Movie, Long> , MovieRepositoryCustom {
+public interface MovieRepository extends JpaRepository<Movie, Long>, MovieRepositoryCustom {
 
     @Query("SELECT m FROM Movie m LEFT JOIN FETCH m.trailer")
     Optional<Movie> getMovieById(long id);
@@ -20,6 +20,6 @@ public interface MovieRepository extends JpaRepository<Movie, Long> , MovieRepos
                         where p.platform=:platform
                         order by m.vote_count desc
                         limit 20
-            """,nativeQuery = true)
+            """, nativeQuery = true)
     List<Object[]> getPopularMoviesByPlatform(String platform);
 }

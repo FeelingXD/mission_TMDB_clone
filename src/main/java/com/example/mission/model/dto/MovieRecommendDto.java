@@ -19,13 +19,13 @@ public class MovieRecommendDto {
     private String posterPath;
     private Integer userScore;
 
-    public static MovieRecommendDto fromEntity(Movie movie){
+    public static MovieRecommendDto fromEntity(Movie movie) {
         return MovieRecommendDto.builder()
                 .id(movie.getId())
                 .title(movie.getTitle())
                 .releaseDate(movie.getReleaseDate())
                 .posterPath(movie.getPosterPath())
-                .userScore((int)(movie.getVoteAverage()*10))
+                .userScore((int) (movie.getVoteAverage() * 10))
                 .build();
     }
 }

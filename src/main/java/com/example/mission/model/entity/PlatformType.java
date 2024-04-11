@@ -10,16 +10,20 @@ import java.io.Serializable;
 
 @Entity
 @Getter
+@IdClass(PlatformType.PlatformPK.class)
 public class PlatformType {
 
-    @EmbeddedId
-    private PlatformPK id;
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="movie_id")
+    private Movie movie;
+    @Id
+    @Column(name = "platform")
+    private String platform;
     @Data
     @Embeddable
     public class PlatformPK implements Serializable{
-        @Column(name ="movie_id")
-        private Long movieId;
-        @Column(name="platform")
+        private Movie movie;
         private String platform;
     }
 }

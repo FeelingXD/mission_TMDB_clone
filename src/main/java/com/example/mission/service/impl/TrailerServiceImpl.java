@@ -24,11 +24,11 @@ public class TrailerServiceImpl implements TrailerService {
         var theater=trailerRepository.getLatestTrailersByType(Platform.THEATER.name());
 
         return LatestTrailersDto.builder()
-                .popular(popular.stream().map(TrailerDto::objToTrailerDto).toList())
-                .tv(tv.stream().map(TrailerDto::objToTrailerDto).toList())
-                .streaming(streaming.stream().map(TrailerDto::objToTrailerDto).toList())
-                .rental(rental.stream().map(TrailerDto::objToTrailerDto).toList())
-                .theater(theater.stream().map(TrailerDto::objToTrailerDto).toList())
+                .popular(popular)
+                .tv(tv)
+                .streaming(streaming)
+                .rental(rental)
+                .theater(theater)
                 .build();
     }
 }

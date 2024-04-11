@@ -20,9 +20,25 @@ MariaDB or MySQL
 
 요구사항
 
-- [ ]유형별 인기 영화목록 조회 API 를 제공해야 한다.   
-- [ ]유형별 최신 예고편 조회 API 를 제공해야 한다.   
-- [ ]기간별 트렌딩 조회 API 를 제공해야 한다.   
-- [ ]영화상세 조회 API 를 제공해야 한다.   
-- [ ]추천(관련) 영화 조회 API 를 제공해야 한다.     
+- [✅]유형별 인기 영화목록 조회 API 를 제공해야 한다.   
+- [✅]유형별 최신 예고편 조회 API 를 제공해야 한다.   
+- [✅]기간별 트렌딩 조회 API 를 제공해야 한다.   
+- [✅]영화상세 조회 API 를 제공해야 한다.   
+- [✅]추천(관련) 영화 조회 API 를 제공해야 한다.     
 ※ 위 내용을 제외한 사항은 자유롭게 진행해주세요.   
+
+---
+
+## Dependencies
+
+- java 17
+- Spring-Boot-3.x
+- Spring-data-jpa
+- Spring-web
+- Spring-boot-docker-composer
+- QueryDsl
+- MariaDb
+- lombok
+- docker
+- common-api-response:1.1 ->
+  [common-api-response repository](https://github.com/FeelingXD/common-api-response)

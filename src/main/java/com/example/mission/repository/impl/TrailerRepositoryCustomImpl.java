@@ -24,16 +24,19 @@ public class TrailerRepositoryCustomImpl implements TrailerRepositoryCustom {
     public List<TrailerDto> getLatestTrailersByPopular() {
 
         var query = factory
-                .selectDistinct(qPlatformType.movie.trailer)
+                .select(qPlatformType,qMovie,qTrailer)
+                .distinct()
                 .from(qPlatformType)
                 .leftJoin(qPlatformType.movie, qMovie).fetchJoin()
                 .leftJoin(qMovie.trailer, qTrailer).fetchJoin()
+                .groupBy(qTrailer)
                 .orderBy(qMovie.releaseDate.desc(), qMovie.voteCount.desc())
                 .limit(4);
 
 
         return query.fetch()
                 .stream()
+                .map(tuple -> tuple.get(qTrailer))
                 .map(TrailerDto::fromEntity)
                 .toList();
     }
@@ -41,15 +44,18 @@ public class TrailerRepositoryCustomImpl implements TrailerRepositoryCustom {
     @Override
     public List<TrailerDto> getLatestTrailersByType(String platform) {
         var query = factory
-                .selectDistinct(qPlatformType.movie.trailer)
+                .select(qPlatformType,qMovie,qTrailer)
                 .from(qPlatformType)
                 .leftJoin(qPlatformType.movie, qMovie).fetchJoin()
                 .leftJoin(qMovie.trailer, qTrailer).fetchJoin()
+                .where(qPlatformType.platform.eq(platform))
+                .groupBy(qTrailer)
                 .orderBy(qMovie.releaseDate.desc(), qMovie.voteCount.desc())
                 .limit(4);
 
         return query.fetch()
                 .stream()
+                .map(tuple -> tuple.get(qTrailer))
                 .map(TrailerDto::fromEntity)
                 .toList();
     }

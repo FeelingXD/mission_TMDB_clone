@@ -9,7 +9,7 @@ IGNORE 1 ROWS
 (@movie_id,@trailer_overview,@trailer_title,@trailer_url)
 SET
     movie_id  = @movie_id,
-    trailer_overview=@trailer_overview
-    trailer_title=@trailer_title
-    trailer_url=@trailer_url
+    trailer_overview=@trailer_overview,
+    trailer_title=@trailer_title,
+    trailer_url=replace(@trailer_url,'\r','')
     

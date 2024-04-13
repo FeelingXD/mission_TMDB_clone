@@ -41,4 +41,4 @@ MariaDB or MySQL
 - lombok
 - docker
 - common-api-response:1.1 ->
-  [common-api-response` repository](https://github.com/FeelingXD/common-api-response)
+  [common-api-response repository](https://github.com/FeelingXD/common-api-response)

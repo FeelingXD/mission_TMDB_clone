@@ -8,7 +8,9 @@ import com.example.mission.model.dto.form.VoteForm;
 import com.example.mission.repository.VoteRepository;
 import com.example.mission.service.MovieService;
 import com.example.mission.service.VoteService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,7 +37,7 @@ public class MovieController {
         return movieService.getPopularMovies();
     }
     @PostMapping("/{id}/vote")
-    public VoteResultDto voteMovie(@PathVariable long id, @RequestBody VoteForm form){
+    public VoteResultDto voteMovie(@PathVariable long id, @Valid @RequestBody VoteForm form){
         voteService.createVote(id,form.getVoteScore());
         return VoteResultDto.builder()
                 .movieId(id)

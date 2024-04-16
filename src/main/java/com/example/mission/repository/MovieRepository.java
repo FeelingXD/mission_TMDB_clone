@@ -12,14 +12,14 @@ public interface MovieRepository extends JpaRepository<Movie, Long>, MovieReposi
     @Query("SELECT m FROM Movie m LEFT JOIN FETCH m.trailer")
     Optional<Movie> getMovieById(long id);
 
-    @Query(value = """
-            select distinct m.id,m.title,m.release_date,m.poster_path,m.vote_average
-                        from movie m
-                        join platform_type p
-                        on m.id=p.movie_id
-                        where p.platform=:platform
-                        order by m.vote_count desc
-                        limit 20
-            """, nativeQuery = true)
-    List<Object[]> getPopularMoviesByPlatform(String platform);
+//    @Query(value = """
+//            select distinct m.id,m.title,m.release_date,m.poster_path,m.vote_average
+//                        from movie m
+//                        join platform_type p
+//                        on m.id=p.movie_id
+//                        where p.platform=:platform
+//                        order by m.vote_count desc
+//                        limit 20
+//            """, nativeQuery = true)
+//    List<Object[]> getPopularMoviesByPlatform(String platform);
 }

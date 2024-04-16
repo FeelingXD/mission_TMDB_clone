@@ -19,7 +19,7 @@ public class MovieCardDto {
     private String title;
     private LocalDateTime releaseDate;
     private String posterPath;
-    private Integer UserScore;
+    private Integer userScore;
 
     public static MovieCardDto fromEntity(Movie movie) {
         return MovieCardDto.builder()
@@ -27,7 +27,7 @@ public class MovieCardDto {
                 .title(movie.getTitle())
                 .releaseDate(movie.getReleaseDate())
                 .posterPath(movie.getPosterPath())
-                .UserScore((int) (movie.getVoteAverage() * 10))
+                .userScore((int) (movie.getVoteAverage() * 10))
                 .build();
     }
 
@@ -37,7 +37,7 @@ public class MovieCardDto {
                 .title((String) obj[1])
                 .releaseDate(((Timestamp) obj[2]).toLocalDateTime())
                 .posterPath((String) obj[3])
-                .UserScore((int) ((double) (obj[4]) * 10))
+                .userScore((int) ((double) (obj[4]) * 10))
                 .build();
     }
 }

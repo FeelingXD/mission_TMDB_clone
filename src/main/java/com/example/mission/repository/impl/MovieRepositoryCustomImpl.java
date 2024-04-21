@@ -30,7 +30,7 @@ public class MovieRepositoryCustomImpl implements MovieRepositoryCustom {
                 .leftJoin(qMovie.trailer)
                 .fetchJoin()
                 .from(qMovie)
-                .where(qMovie.genre.eq(condition_find_genre_by_movie_id))
+                .where(qMovie.genre.eq(condition_find_genre_by_movie_id).and(qMovie.id.ne(id)))
                 .orderBy(qMovie.voteCount.desc())
                 .limit(10);
 

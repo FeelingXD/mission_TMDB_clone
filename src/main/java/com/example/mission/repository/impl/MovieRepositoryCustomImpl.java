@@ -15,8 +15,8 @@ import java.util.Objects;
 public class MovieRepositoryCustomImpl implements MovieRepositoryCustom {
 
     private final JPAQueryFactory queryFactory;
-    QMovie qMovie = QMovie.movie;
-    QPlatformType qPlatformType = QPlatformType.platformType;
+    private final QMovie qMovie = QMovie.movie;
+    private final QPlatformType qPlatformType = QPlatformType.platformType;
 
     @Override
     public List<MovieRecommendDto> getRecommendMoviesById(Long id) { //todo : 영화 추천 같은 장르 영화 에서 voteCount 큰순

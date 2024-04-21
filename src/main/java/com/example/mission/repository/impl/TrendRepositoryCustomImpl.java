@@ -14,8 +14,8 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class TrendRepositoryCustomImpl implements TrendRepositoryCustom {
     private final JPAQueryFactory factory;
-    QTrend qTrend = QTrend.trend;
-    QMovie qMovie = QMovie.movie;
+    private final QTrend qTrend = QTrend.trend;
+    private final QMovie qMovie = QMovie.movie;
 
     @Override
     public List<MovieCardDto> getTodayMovieTrend() {

@@ -16,9 +16,9 @@ import java.util.List;
 public class TrailerRepositoryCustomImpl implements TrailerRepositoryCustom {
     private final JPAQueryFactory factory;
 
-    QMovie qMovie = QMovie.movie;
-    QTrailer qTrailer = QTrailer.trailer;
-    QPlatformType qPlatformType = QPlatformType.platformType;
+    private final QMovie qMovie = QMovie.movie;
+    private final QTrailer qTrailer = QTrailer.trailer;
+    private final QPlatformType qPlatformType = QPlatformType.platformType;
 
     @Override
     public List<TrailerDto> getLatestTrailersByPopular() {

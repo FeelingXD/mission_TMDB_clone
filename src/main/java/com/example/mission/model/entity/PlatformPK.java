@@ -1,7 +1,6 @@
 package com.example.mission.model.entity;
 
 import jakarta.persistence.Embeddable;
-import lombok.Data;
 import lombok.Getter;
 
 import java.io.Serializable;

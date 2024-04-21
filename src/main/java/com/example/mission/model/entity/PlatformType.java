@@ -7,6 +7,7 @@ import lombok.Getter;
 @Entity
 @Getter
 @IdClass(PlatformPK.class)
+@Table(indexes = @Index(name = "idx_movie_id_platform",columnList = "movie_id,platform"))
 public class PlatformType {
 
     @Id

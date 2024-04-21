@@ -1,10 +1,7 @@
 package com.example.mission.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
-
-import java.io.Serializable;
 
 
 @Entity

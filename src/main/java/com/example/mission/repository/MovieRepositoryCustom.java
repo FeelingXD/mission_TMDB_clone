@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface MovieRepositoryCustom {
     List<MovieRecommendDto> getRecommendMoviesById(Long id);
+
     List<MovieCardDto> getPopularMoviesByPlatform(String platform);
 }

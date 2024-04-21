@@ -37,13 +37,14 @@ public class MovieRepositoryCustomImpl implements MovieRepositoryCustom {
         return query.fetch()
                 .stream().map(MovieRecommendDto::fromEntity).toList();
     }
-    public List<MovieCardDto> getPopularMoviesByPlatform(String platform){
+
+    public List<MovieCardDto> getPopularMoviesByPlatform(String platform) {
 
         var query = queryFactory
-                .select(qPlatformType,qMovie)
+                .select(qPlatformType, qMovie)
                 .distinct()
                 .from(qPlatformType)
-                .leftJoin(qPlatformType.movie,qMovie).fetchJoin()
+                .leftJoin(qPlatformType.movie, qMovie).fetchJoin()
                 .leftJoin(qMovie.trailer).fetchJoin()
                 .where(qPlatformType.platform.eq(platform))
                 .orderBy(qMovie.voteCount.desc())

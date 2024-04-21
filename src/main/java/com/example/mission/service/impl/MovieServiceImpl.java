@@ -2,7 +2,6 @@ package com.example.mission.service.impl;
 
 import com.example.mission.common.CustomException;
 import com.example.mission.common.ErrorCode;
-import com.example.mission.model.dto.MovieCardDto;
 import com.example.mission.model.dto.MovieDto;
 import com.example.mission.model.dto.MovieRecommendDto;
 import com.example.mission.model.dto.PopularMoviesDto;

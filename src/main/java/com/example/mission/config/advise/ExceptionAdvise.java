@@ -16,17 +16,19 @@ public class ExceptionAdvise {
     public ResponseEntity<ApiResponse<Void>> customExceptionHandler(CustomException e) {
         return ApiResponse.builder().code(e.getErrorCode()).toEntity();
     }
+
     @ExceptionHandler(NoHandlerFoundException.class)
-    public ResponseEntity<ApiResponse<Void>>  noHandlerFoundExceptionHandler(NoHandlerFoundException e){
+    public ResponseEntity<ApiResponse<Void>> noHandlerFoundExceptionHandler(NoHandlerFoundException e) {
         return ApiResponse.builder().code(ErrorCode.WRONG_URL_REQUESTED).toEntity();
     }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiResponse<Void>> processValidationError(MethodArgumentNotValidException e){
-        StringBuilder builder=new StringBuilder();
-        for (FieldError fieldError:e.getBindingResult().getFieldErrors()){
+    public ResponseEntity<ApiResponse<Void>> processValidationError(MethodArgumentNotValidException e) {
+        StringBuilder builder = new StringBuilder();
+        for (FieldError fieldError : e.getBindingResult().getFieldErrors()) {
             builder.append("[").append(fieldError.getField()).append("](은)는");
             builder.append(fieldError.getDefaultMessage());
-            builder.append(String.format("입력된 값 [ %s ]",fieldError.getRejectedValue()));
+            builder.append(String.format("입력된 값 [ %s ]", fieldError.getRejectedValue()));
         }
 
         return ApiResponse.builder()

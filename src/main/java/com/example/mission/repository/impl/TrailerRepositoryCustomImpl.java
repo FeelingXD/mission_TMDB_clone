@@ -24,7 +24,7 @@ public class TrailerRepositoryCustomImpl implements TrailerRepositoryCustom {
     public List<TrailerDto> getLatestTrailersByPopular() {
 
         var query = factory
-                .select(qPlatformType,qMovie,qTrailer)
+                .select(qPlatformType, qMovie, qTrailer)
                 .distinct()
                 .from(qPlatformType)
                 .leftJoin(qPlatformType.movie, qMovie).fetchJoin()
@@ -44,7 +44,7 @@ public class TrailerRepositoryCustomImpl implements TrailerRepositoryCustom {
     @Override
     public List<TrailerDto> getLatestTrailersByType(String platform) {
         var query = factory
-                .select(qPlatformType,qMovie,qTrailer)
+                .select(qPlatformType, qMovie, qTrailer)
                 .from(qPlatformType)
                 .leftJoin(qPlatformType.movie, qMovie).fetchJoin()
                 .leftJoin(qMovie.trailer, qTrailer).fetchJoin()
